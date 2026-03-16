@@ -1,0 +1,123 @@
+<html lang="en">
+<head>
+   
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <br><title>login</title>
+</head>
+ <center>
+<body>
+
+    
+<table border="1" height ="50%" width= "50%">
+<tr align="Center">
+<td> 
+    <div class="login-box"></div>
+    <h2>login</h2>
+    
+    <p id="error-message" style="display:none;">X Incorrect username or password.</p>
+    <form>
+        
+     <label for="username">Username:</label><br />  
+     <input type="text" id="username" name="username" /><br /><br />
+        
+     <label for="password">Password:</label><br />
+     <input type="password" id="password" name="password" /><br /><br />
+      
+     <div class="remember-row">
+     <input type="checkbox" id="remember" name="remember" />
+     <label for="remember">Remember Me</label><br /><br />
+     </div>
+     
+    <div class="button-row">
+     <button type="button" id="submit" onclick="checkLogic()">Submit</button>
+     <button type="button" id="cancel" onclick="clearForm()">Cancel</button> 
+    </div>
+        </form>
+    
+    <tr/>
+    <td/>
+</table>
+    
+<!-----------------css------------------->
+<style>
+/*-------------body design--------------*/
+    body
+    {
+        background-color:white;
+        background: white;
+    }
+/*-------------table design--------------*/
+    table
+    { 
+        background-color: pink;
+        border-radius: 20px;
+        padding: 20px;
+    }
+/*-------------login color--------------*/
+    h2 
+    {
+       font-size: 45px;
+       color: white;
+       text-shadow: 1px 1px hotpink;
+    }
+/*-------------button design-------------*/
+    button
+    {
+      border-radius:20px;
+      border-color: white;
+      background:pink;
+      padding:6px 15px;
+      font-weight:bold;
+    }
+/*-------------table color--------------*/
+    table
+    {
+        border-color: hotpink;
+    }
+/*-------------label color--------------*/
+    label
+    {
+        font-weight:bold;
+        color: deeppink;
+    }
+    
+</style>
+<!-------------Function Area-------------->
+    
+<script>
+    // STEP1: set your correct username & password here
+var correctUsername = "trisha"
+var correctPassword = "042005"
+   // STEP2: this function runs when submit is clicked
+function checkLogic(){
+    var enteredUsername = document.getElementById("username").value;
+    var enteredPassword = document.getElementById("password").value;
+    
+    // compare what the user typed with correct values
+    if (enteredUsername === correctUsername && enteredPassword === correctPassword){
+    // if the password and username is correct, go to abtmyselfpage.html
+    window.location.href = "AboutMyselfPage.html";
+    } else {
+    // if the password and username is wrong, show the error message
+    document.getElementById("error-message").style.display = "block";
+    }
+}
+    // STEP3: cancel button clears the form
+function clearForm(){
+    document.getElementById("username").value = "";
+    document.getElementById("password").value = "";
+    document.getElementById("error-message").style.display = "none";
+    
+}
+</script>
+    
+</body>
+</center>
+</html>
