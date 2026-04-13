@@ -1,195 +1,460 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Anchor Demo</title> 
-<style>
-body {
-    background: linear-gradient(to right, #ff9ec4, #ffc0cb);
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  padding: 0;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trisha Mae Mahumoc | About Myself</title>
+    <style>
+        :root {
+            --rose-50: #fff9fb;
+            --rose-100: #fff0f5;
+            --rose-200: #f9dbe6;
+            --rose-300: #efbfd0;
+            --rose-500: #d985a4;
+            --rose-700: #a95777;
+            --ink: #5d3a49;
+            --muted: #7a5a67;
+            --card: rgba(255, 255, 255, 0.88);
+            --shadow: 0 22px 45px rgba(180, 115, 142, 0.18);
+        }
 
-h1 {
-    font-size: 45px;
-   color: white;
-  text-shadow: 2px 2px 5px gray;
-}
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
-h2 {
-   color: white;
-   text-shadow: 1px 1px 3px black;
-}
+        body {
+            margin: 0;
+            font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0)),
+                linear-gradient(135deg, #fff8fb 0%, #ffeef4 48%, #f9dce7 100%);
+        }
 
-p {
- font-size: 16px;
-   color: white;}
+        body::before,
+        body::after {
+            content: "";
+            position: fixed;
+            border-radius: 50%;
+            z-index: 0;
+            pointer-events: none;
+            filter: blur(4px);
+        }
 
-img{
-   border: 8px solid palegreen;
-   border-radius: 50px;
-   box-shadow: 0px 10px 20px rgba(0,0,0,0.3);
-   transition: transform 0.3s;
-}
+        body::before {
+            width: 300px;
+            height: 300px;
+            top: -80px;
+            right: -90px;
+            background: rgba(235, 180, 198, 0.3);
+        }
 
-img:hover{
-    transform: scale(1.1);
-}
+        body::after {
+            width: 260px;
+            height: 260px;
+            bottom: 30px;
+            left: -80px;
+            background: rgba(249, 208, 222, 0.36);
+        }
 
-table{
-   border-radius: 20px;
-   background-color: hotpink;
-   box-shadow: 0px 8px 15px rgba(0,0,0,0.2);
-   padding: 20px;
-}
+        .page-shell {
+            position: relative;
+            z-index: 1;
+            width: min(1120px, calc(100% - 32px));
+            margin: 26px auto 40px;
+        }
 
-a{
-    text-decoration: none;
-   color: white;
-   font-weight: bold;
-  transition: 0.3s;
-}
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 18px 24px;
+            border: 1px solid rgba(217, 133, 164, 0.2);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+        }
 
-a:hover{
-  color: yellow;  font-size: 18px;
-}
+        .brand {
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--rose-700);
+        }
 
-#Top{
-   background-color: black;
-   border-radius: 30px;
-}
+        .nav-links,
+        .action-links {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
 
-footer{
-   color: white;
-   margin-top: 20px;-    font-size: 14px;
-}
+        a {
+            text-decoration: none;
+        }
 
-back-to-top {
-  display: inline-block;
-    margin-top: 15px;
-        padding: 8px 16px;
-   color: white;
-   border-radius: 20px;
-   font-weight: bold;
-  text-decoration: none;
-  transition: 0.3s;
-}
+        .nav-links a {
+            color: var(--muted);
+            font-weight: 600;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
 
-back-to-top:hover {
-   background-color: hotpink;
-  color: white;
-  transform: scale(1.05);
-}
-</style>
--
--</head>
--
--<body>
--
-<center>
--
--<a id="TopAnchor"></a>
--
--<br>
--<br>
--<br>
--<br>
--
--<h1>Trisha's Portfolio</h1>
--
--<table height ="5%" width= "85%" id="Top">
-<tr align="Center">
--<td><a href="#About">About</a></td>
--<td><a href="#Services">Services</a></td>
--<td><a href="#Contact">Contact</a></td>
--</tr>
--</table>
--
--<br>
--
--<table height ="10%" width= "85%">
-<tr align="Center">
--<td>
--<h2><a id="About"></a>About Myself</h2>
--<br>
--<img src="TRISHA.jpg" width="120px" height="120px">
--<br>
--<p>
--Name: Trisha Mae P. Mahumoc<br>
--Profession: Hardware and Software Designer
--<br><br>
--Hi! I'm Trisha Mae P. Mahumoc, 20 years old, a passionate graphic and web designer who enjoys creating projects that are both beautiful and useful.<br>
--I specialize in developing thoughtful designs, building simple but effective web pages, and turning creative ideas into meaningful digital experiences.<br>
--I always try to combine creativity, patience, and attention to detail in every work that I do.<br>
--Aside from designing, I also enjoy learning about technology, improving my technical skills, and exploring new ways to make my projects more modern and user-friendly.<br>
--I believe that good design is not only about appearance, but also about clear communication, function, and the ability to leave a positive impression on people.
--</p> 
--
--<p><a href="#TopAnchor" class="back-to-top">Back to Top ↑</a></p>
--
--</td>
--</tr>
--</table>
--
--<br>
--
--<table height ="10%" width= "85%">
--<tr align="Center">
--<td>
--<h2><a id="Services"></a>My Services</h2>
--<p> 
--I build fast, user-friendly websites and provide creative digital services that focus on both style and performance.<br>
--My goal is to help clients and projects stand out by offering work that is neat, reliable, and visually appealing.<br><br>
--
--- Website Design and Development<br>
--- Responsive Mobile Friendly Websites<br>
--- Photo Editing and Retouching<br>
--- Hardware and Software Maintenance<br><br>
--
--I am dedicated to delivering effective and professional results while making sure every project is completed with care, quality, and creativity.<br>
--Whether you need a simple personal website, edited visuals, or technical support, I am ready to help with a positive attitude and a willingness to improve every step of the way.
--</p> 
--
--<p><a href="#TopAnchor" class="back-to-top">Back to Top ↑</a></p>
--
--</td>
--</tr>
--</table>
--
--<br>
--
--<table height ="10%" width= "85%">
--<tr align="Center">
--<td>
--<h2><a id="Contact"></a>My Contact</h2>
--<p> 
--Let's Work Together!<br><br>
--
--I'd love to hear from you.<br>
--Feel free to reach out for collaboration or inquiries.<br><br>
--
--If you have a project idea, design request, or technical concern, you can contact me anytime and I will do my best to respond as soon as possible.<br>
--I am open to working with classmates, clients, organizations, and anyone who values creativity, dedication, and teamwork.<br><br>
--
--Contact No: 09684235403<br>
--Email Address: trishamahumoc@gmail.com<br>
--Website: www.trishawebsite.com<br><br>
--
--Social Media Links:<br>
--Facebook: trishamahumoc<br>
--Instagram: trshxieq
--</p>
--
--<p><a href="#TopAnchor" class="back-to-top">Back to Top ↑</a></p>
+        .nav-links a:hover {
+            color: var(--rose-700);
+            transform: translateY(-1px);
+        }
 
-</td>
-</tr>
-</table>  
+        .button-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 18px;
+            border-radius: 999px;
+            font-weight: 700;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
 
-<footer>
-    © 2026 Trisha Mae P. Mahumoc | Designed with Passion 
-</footer>
+        .button-link:hover {
+            transform: translateY(-2px);
+        }
 
-</center>
+        .button-primary {
+            color: #ffffff;
+            background: linear-gradient(135deg, var(--rose-500), #c96f92);
+            box-shadow: 0 12px 24px rgba(201, 111, 146, 0.22);
+        }
 
+        .button-secondary {
+            color: var(--rose-700);
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(217, 133, 164, 0.28);
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 28px;
+            margin-top: 24px;
+        }
+
+        .hero-card,
+        .section-card {
+            border: 1px solid rgba(217, 133, 164, 0.18);
+            border-radius: 30px;
+            background: var(--card);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-card {
+            padding: 40px;
+        }
+
+        .eyebrow {
+            margin: 0 0 12px;
+            color: var(--rose-700);
+            font-size: 0.84rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.4rem, 5vw, 4.4rem);
+            line-height: 1.05;
+            color: #7c3d57;
+        }
+
+        .hero-subtitle {
+            margin: 18px 0 0;
+            font-size: 1.07rem;
+            line-height: 1.9;
+            color: var(--muted);
+            max-width: 640px;
+        }
+
+        .hero-summary {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 28px;
+        }
+
+        .mini-card {
+            padding: 18px;
+            border-radius: 22px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 240, 245, 0.9));
+            border: 1px solid rgba(217, 133, 164, 0.15);
+        }
+
+        .mini-card strong {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--rose-700);
+            font-size: 1rem;
+        }
+
+        .mini-card span {
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .profile-panel {
+            padding: 26px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 235, 243, 0.96)),
+                var(--card);
+        }
+
+        .profile-photo {
+            width: min(100%, 320px);
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 28px;
+            border: 6px solid rgba(255, 255, 255, 0.96);
+            box-shadow: 0 20px 40px rgba(161, 93, 120, 0.2);
+        }
+
+        .profile-panel h2 {
+            margin: 20px 0 8px;
+            color: var(--rose-700);
+            font-size: 1.8rem;
+        }
+
+        .profile-panel p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .section-card {
+            padding: 30px;
+        }
+
+        .section-card h3 {
+            margin: 0 0 14px;
+            font-size: 1.35rem;
+            color: var(--rose-700);
+        }
+
+        .section-card p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.9;
+        }
+
+        .service-list,
+        .contact-list {
+            margin: 18px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .service-list li,
+        .contact-list li {
+            margin-bottom: 12px;
+            padding: 12px 14px;
+            border-radius: 16px;
+            background: rgba(255, 245, 249, 0.85);
+            color: var(--ink);
+            border: 1px solid rgba(217, 133, 164, 0.12);
+        }
+
+        .wide-section {
+            margin-top: 24px;
+            padding: 34px;
+        }
+
+        .wide-section p + p {
+            margin-top: 16px;
+        }
+
+        footer {
+            margin-top: 24px;
+            padding: 20px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 960px) {
+            .hero,
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-summary {
+                grid-template-columns: 1fr;
+            }
+
+            .topbar {
+                border-radius: 28px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .page-shell {
+                width: min(100% - 18px, 1120px);
+                margin-top: 12px;
+            }
+
+            .hero-card,
+            .section-card,
+            .wide-section {
+                padding: 24px;
+            }
+
+            h1 {
+                font-size: 2.4rem;
+            }
+
+            .action-links {
+                width: 100%;
+            }
+
+            .button-link {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-shell" id="top">
+        <header class="topbar">
+            <div class="brand">Trisha Mae Mahumoc</div>
+            <nav class="nav-links">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#journey">Journey</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="action-links">
+                <a class="button-link button-secondary" href="MahumocLogin.html">Back to Login</a>
+                <a class="button-link button-primary" href="#contact">Work With Me</a>
+            </div>
+        </header>
+
+        <section class="hero" id="about">
+            <div class="hero-card">
+                <p class="eyebrow">Professional Profile</p>
+                <h1>Creative, thoughtful, and detail-focused digital designer.</h1>
+                <p class="hero-subtitle">
+                    Hello, I am Trisha Mae P. Mahumoc, a passionate and motivated designer who enjoys turning ideas into elegant, useful, and meaningful digital experiences.
+                    I take pride in creating work that feels visually refined, organized, and welcoming while still staying practical, clear, and easy to use.
+                    My goal is to continue growing as a creative professional who can contribute with both imagination and responsibility in every project I handle.
+                </p>
+
+                <div class="hero-summary">
+                    <div class="mini-card">
+                        <strong>Creative Focus</strong>
+                        <span>I enjoy web design, visual presentation, and building pages that feel polished, friendly, and memorable.</span>
+                    </div>
+                    <div class="mini-card">
+                        <strong>Work Style</strong>
+                        <span>I approach projects with patience, dedication, and a strong desire to improve every detail until the result feels complete.</span>
+                    </div>
+                    <div class="mini-card">
+                        <strong>Professional Goal</strong>
+                        <span>I want to create designs that communicate clearly, leave a positive impression, and support real people with real needs.</span>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="profile-panel">
+                <img class="profile-photo" src="MAHUMOC, TRISHA MAE ..jpg" alt="Portrait of Trisha Mae Mahumoc">
+                <h2>About Myself</h2>
+                <p>
+                    20 years old<br>
+                    Hardware and Software Designer<br>
+                    Aspiring Web and Graphic Creative
+                </p>
+            </aside>
+        </section>
+
+        <section class="content-grid">
+            <article class="section-card" id="services">
+                <h3>My Services</h3>
+                <p>
+                    I offer creative and technical support for projects that need a balance of design, function, and presentation.
+                    I always aim to deliver output that is clean, dependable, and visually attractive.
+                </p>
+                <ul class="service-list">
+                    <li>Website design and basic front-end page development</li>
+                    <li>Responsive layouts that look organized on desktop and mobile</li>
+                    <li>Photo editing, visual enhancement, and simple branding presentation</li>
+                    <li>Hardware and software support with careful troubleshooting</li>
+                </ul>
+            </article>
+
+            <article class="section-card">
+                <h3>My Strengths</h3>
+                <p>
+                    I believe one of my greatest strengths is the way I combine creativity with discipline.
+                    I enjoy expressing ideas through design, but I also understand the importance of structure, readability, and user comfort.
+                    I value teamwork, professionalism, and continuous learning because strong output comes from both skill and attitude.
+                </p>
+            </article>
+
+            <article class="section-card" id="contact">
+                <h3>Contact Me</h3>
+                <p>
+                    I am open to collaborations, class projects, creative work, and opportunities where I can contribute my skills while continuing to grow professionally.
+                </p>
+                <ul class="contact-list">
+                    <li>Contact Number: 09684235403</li>
+                    <li>Email: trishamahumoc@gmail.com</li>
+                    <li>Facebook: trishamahumoc</li>
+                    <li>Instagram: trshxieq</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="section-card wide-section" id="journey">
+            <h3>My Journey and Vision</h3>
+            <p>
+                As a student and aspiring professional, I see every project as an opportunity to improve my creativity, technical knowledge, and confidence.
+                I enjoy learning how color, layout, typography, and structure can work together to produce something that feels both attractive and purposeful.
+                For me, good design is not only about making something beautiful. It is also about making information easier to understand, creating a smoother experience, and showing care in every detail.
+            </p>
+            <p>
+                I am especially interested in work that allows me to express ideas in a soft, modern, and professional way.
+                Whether I am designing a personal webpage, helping with a presentation, editing visual content, or assisting with technical concerns, I try to bring sincerity, effort, and a positive attitude into the process.
+                I want my work to reflect not only creativity, but also reliability, respect, and a willingness to keep learning.
+            </p>
+            <p>
+                In the future, I hope to continue developing my skills in web design, digital creativity, and user-focused presentation so I can create projects that are memorable, polished, and meaningful.
+                I believe that when design is made with heart, discipline, and intention, it becomes more than just a visual piece. It becomes a message about who we are and the value we want to share with others.
+            </p>
+            <p>
+                <a class="button-link button-secondary" href="#top">Back to Top</a>
+            </p>
+        </section>
+
+        <footer>
+            &copy; 2026 Trisha Mae P. Mahumoc | Professional Portfolio and Personal Profile
+        </footer>
+    </div>
 </body>
 </html>
