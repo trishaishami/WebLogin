@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style>
+        :root {
+            --rose-50: #fff5f8;
+            --rose-100: #ffe7ef;
+            --rose-200: #f7cad8;
+            --rose-400: #d97a98;
+            --rose-500: #c85d7d;
+            --rose-700: #8a3d56;
+            --ink: #442c36;
+            --white: #ffffff;
+            --shadow: 0 18px 45px rgba(166, 86, 113, 0.18);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.88)),
+                linear-gradient(135deg, #f8f4f6 0%, #f3e7ec 50%, #ead8df 100%);
+        }
+
+        body::before,
+        body::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        body::before {
+            top: -120px;
+            left: -80px;
+            width: 320px;
+            height: 320px;
+            background: radial-gradient(circle, rgba(216, 134, 160, 0.24), rgba(216, 134, 160, 0));
+        }
+
+        body::after {
+            right: -110px;
+            bottom: -130px;
+            width: 360px;
+            height: 360px;
+            background: radial-gradient(circle, rgba(179, 104, 130, 0.16), rgba(179, 104, 130, 0));
+        }
+
+        .login-card {
+            position: relative;
+            width: min(100%, 420px);
+            padding: 36px 32px;
+            border: 1px solid rgba(201, 108, 138, 0.18);
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.94);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(6px);
+            overflow: hidden;
+        }
+
+        .login-card::before {
+            content: "";
+            position: absolute;
+            inset: 0 0 auto 0;
+            height: 130px;
+            background: linear-gradient(135deg, rgba(232, 192, 206, 0.7), rgba(255, 255, 255, 0));
+            pointer-events: none;
+        }
+
+        .eyebrow {
+            position: relative;
+            margin: 0 0 8px;
+            font-size: 12px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--rose-500);
+            font-weight: 700;
+        }
+
+        h2 {
+            position: relative;
+            margin: 0 0 10px;
+            font-size: 34px;
+            color: var(--rose-700);
+        }
+
+        .subtitle {
+            position: relative;
+            margin: 0 0 24px;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #6d4c58;
+        }
+
+        .accent-row {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 0 22px;
+        }
+
+        .accent-line {
+            height: 1px;
+            flex: 1;
+            background: linear-gradient(90deg, rgba(201, 108, 138, 0.1), rgba(201, 108, 138, 0.45), rgba(201, 108, 138, 0.1));
+        }
+
+        .accent-badge {
+            padding: 7px 12px;
+            border: 1px solid rgba(201, 108, 138, 0.2);
+            border-radius: 999px;
+            background: rgba(255, 248, 251, 0.95);
+            color: var(--rose-700);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        #error-message {
+            display: none;
+            margin: 0 0 18px;
+            padding: 12px 14px;
+            border: 1px solid #e8b7c6;
+            border-radius: 12px;
+            background: #fff1f5;
+            color: #9d3556;
+            font-size: 14px;
+        }
+
+        form {
+            position: relative;
+            display: grid;
+            gap: 16px;
+        }
+
+        .field-group {
+            display: grid;
+            gap: 8px;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--rose-700);
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid #e6bfd0;
+            border-radius: 14px;
+            background: var(--rose-50);
+            color: var(--ink);
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: var(--rose-400);
+            background: var(--white);
+            box-shadow: 0 0 0 4px rgba(217, 122, 152, 0.14);
+        }
+
+        .remember-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: #6d4c58;
+        }
+
+        .remember-row label {
+            font-weight: 500;
+            color: #6d4c58;
+        }
+
+        input[type="checkbox"] {
+            accent-color: var(--rose-500);
+        }
+
+        .button-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 4px;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px 16px;
+            border: none;
+            border-radius: 14px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+        }
+
+        button:hover {
+            transform: translateY(-1px);
+        }
+
+        #submit {
+            color: var(--white);
+            background: linear-gradient(135deg, var(--rose-500), #b94d6e);
+            box-shadow: 0 10px 22px rgba(185, 77, 110, 0.25);
+        }
+
+        #cancel {
+            color: var(--rose-700);
+            background: var(--rose-100);
+            border: 1px solid #efc6d3;
+        }
+
+        .footer-note {
+            position: relative;
+            margin: 22px 0 0;
+            text-align: center;
+            font-size: 12px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #9a7080;
+        }
+
+        @media (max-width: 480px) {
+            .login-card {
+                padding: 28px 22px;
+            }
+
+            .button-row {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="login-card">
+        <p class="eyebrow">Secure Access</p>
+        <h2>Login</h2>
+        <p class="subtitle">Please enter your account credentials to access the system securely.</p>
+        <div class="accent-row">
+            <span class="accent-line"></span>
+            <span class="accent-badge">Professional Portal</span>
+            <span class="accent-line"></span>
+        </div>
+
+        <p id="error-message">Incorrect username or password.</p>
+
+        <form onsubmit="checkLogic(event)">
+            <div class="field-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" />
+            </div>
+
+            <div class="field-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" />
+            </div>
+
+            <div class="remember-row">
+                <input type="checkbox" id="remember" name="remember" />
+                <label for="remember">Remember me</label>
+            </div>
+
+            <div class="button-row">
+                <button type="submit" id="submit">Submit</button>
+                <button type="button" id="cancel" onclick="clearForm()">Cancel</button>
+            </div>
+        </form>
+
+        <p class="footer-note">Private • Secure • Verified Access</p>
+    </section>
+
+    <script>
+        var correctUsername = "admin";
+        var correctPassword = "12345";
+
+        function checkLogic(event) {
+            if (event) {
+                event.preventDefault();
+            }
+
+            var enteredUsername = document.getElementById("username").value;
+            var enteredPassword = document.getElementById("password").value;
+
+            if (enteredUsername === correctUsername && enteredPassword === correctPassword) {
+                window.location.href = "AboutMyselfPage.html";
+            } else {
+                document.getElementById("error-message").style.display = "block";
+            }
+        }
+
+        function clearForm() {
+            document.getElementById("username").value = "";
+            document.getElementById("password").value = "";
+            document.getElementById("remember").checked = false;
+            document.getElementById("error-message").style.display = "none";
+        }
+    </script>
+</body>
+</html>
